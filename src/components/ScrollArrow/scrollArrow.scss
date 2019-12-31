@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+.back-top {
+    position: fixed;
+    bottom: 80px;
+    right: 5%;
+    color: $main-text-color;
+    display: none;
+    cursor: pointer;
+    i {
+        font-size: 3rem;
+    }
+    &:hover {
+        color: orange;
+    }
+}
+
+.show {
+    display: block;
+}

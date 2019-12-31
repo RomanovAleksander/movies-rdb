@@ -1,20 +1,16 @@
 language: node_js
-
 node_js:
-  - 10.15.3
-
+  - lts/*
 branches:
   only:
     - master
-
 cache:
   directories:
     - node_modules
-
 install:
   - npm install
-
 script:
+  - npm run eslint
   - npm run build
 
 deploy:
