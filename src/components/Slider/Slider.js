@@ -1,10 +1,11 @@
 import React from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
-import { Api } from "../../services";
+import {Api} from "../../services";
 import './slider.scss';
 
 let timer;
-export class Slider extends React.Component{
+
+export class Slider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +24,7 @@ export class Slider extends React.Component{
     Api.getPopularMovies(1)
       .then((data) => {
         this.setState({
-          movies: data,
+          movies: data.results,
           sliderMovies: data.results.slice(0, 5),
           movie: data.results[5],
           img: Api.getMovieBackdropImageUrl(data.results[5])
@@ -106,34 +107,34 @@ export class Slider extends React.Component{
 
     return (
       <>
-      <div className="slider">
-        <div className="slider-inner" style={
-          {
-            left: this.state.left
-          }
-        }>
-        {this.state.sliderMovies.map((item) => {
-          return (
-            <div className="slider-item" style={
-              {
-                backgroundImage: `url(${Api.getMovieBackdropImageUrl(item)}`
-              }
+        <div className="slider">
+          <div className="slider-inner" style={
+            {
+              left: this.state.left
             }
-                 key={item.id}>
-              <div className="slider-item__title">{item.title}</div>
-              <div className="slider-item__details">
-                <span>{item.release_date}</span>
-                <span>{item.vote_average}</span>
-              </div>
-              <div className="slider-item__footer">
-                <button>Watch Trailer</button>
-                <button>View Details</button>
-              </div>
-            </div>
-          )
-        })}
+          }>
+            {this.state.sliderMovies.map((item) => {
+              return (
+                <div className="slider-item" style={
+                  {
+                    backgroundImage: `url(${Api.getMovieBackdropImageUrl(item)}`
+                  }
+                }
+                     key={item.id}>
+                  <div className="slider-item__title">{item.title}</div>
+                  <div className="slider-item__details">
+                    <span>{item.release_date}</span>
+                    <span>{item.vote_average}</span>
+                  </div>
+                  <div className="slider-item__footer">
+                    <button>Watch Trailer</button>
+                    <button>View Details</button>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
-      </div>
         <div className="slider-dots">
           {this.state.sliderMovies.map((item, index) => {
             return (
@@ -147,7 +148,29 @@ export class Slider extends React.Component{
             )
           })}
         </div>
-        </>
+        <div>
+          {this.state.movies.map((item) => {
+            return (
+              <div className="slider-item" style={
+                {
+                  backgroundImage: `url(${Api.getMovieBackdropImageUrl(item)}`
+                }
+              }
+                   key={item.id}>
+                <div className="slider-item__title">{item.title}</div>
+                <div className="slider-item__details">
+                  <span>{item.release_date}</span>
+                  <span>{item.vote_average}</span>
+                </div>
+                <div className="slider-item__footer">
+                  <button>Watch Trailer</button>
+                  <button>View Details</button>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </>
     );
   }
 }
