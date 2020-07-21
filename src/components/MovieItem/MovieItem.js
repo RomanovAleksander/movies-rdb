@@ -25,7 +25,7 @@ export class MovieItem extends React.Component {
   };
 
   componentDidMount() {
-    setTimeout(this.mountStyle, 700);
+    setTimeout(this.mountStyle, 1200);
   }
 
   render() {
