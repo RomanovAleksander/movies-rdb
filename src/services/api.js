@@ -3,6 +3,7 @@ import imageFallback from '../assets/no-image.png';
 const API_KEY = 'fa2b02021794026b428e1d15dc359d00';
 const BASE_API_URL = 'https://api.themoviedb.org/3/';
 const BASE_IMG_API = 'https://image.tmdb.org/t/p/original/';
+const BASE_IMG_MINI_API = 'https://image.tmdb.org/t/p/w500/';
 
 class Api {
   generateUrl(path, page, query) {
@@ -41,6 +42,12 @@ class Api {
     return this.handleApiCall(url);
   }
 
+  getTopRatedMovies(page = 1) {
+    const url = this.generateUrl('movie/top_rated', page);
+
+    return this.handleApiCall(url);
+  }
+
   getMovie(id) {
     const url = this.generateUrl(`movie/${id}`);
 
@@ -65,6 +72,14 @@ class Api {
     }
 
     return `${BASE_IMG_API}${movie.poster_path}`;
+  }
+
+  getMoviePosterMiniImageUrl(movie) {
+    if (!movie.poster_path) {
+      return imageFallback;
+    }
+
+    return `${BASE_IMG_MINI_API}${movie.poster_path}`;
   }
 
   getMovieBackdropImageUrl(movie) {

@@ -15,7 +15,7 @@ class Movies extends React.Component {
   handleScroll = () => {
     let clientHeight = document.documentElement.clientHeight;
     let bottom = document.documentElement.getBoundingClientRect().bottom;
-    if (bottom - clientHeight < 150) {
+    if (bottom - clientHeight < 80) {
       this.setState((state) => {
         return {currentPage: state.currentPage + 1}
       });

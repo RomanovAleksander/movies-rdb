@@ -31,13 +31,13 @@ export class MovieItem extends React.Component {
   };
 
   componentDidMount() {
-    setTimeout(this.mountStyle, 900);
+    setTimeout(this.mountStyle, 10);
   }
 
   render() {
     return (
       <div className="movie-item" style={this.state.style}>
-        <img src={Api.getMoviePosterImageUrl(this.props.movie)} alt=""/>
+        <img src={Api.getMoviePosterMiniImageUrl(this.props.movie)} alt=""/>
       </div>
     )
   }

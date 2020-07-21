@@ -27,7 +27,7 @@ export const MovieList = ({ movies, loading, error }) => {
               <div key={movie.id}>
                 <MovieItem
                   movie={movie}
-                  delay={(movies.indexOf(movie)%20)*0.2}
+                  delay={(movies.indexOf(movie)%20)*0.04}
                 />
               </div>
             )
