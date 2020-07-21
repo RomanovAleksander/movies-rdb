@@ -6,7 +6,9 @@
   border: 2px rgba(0,0,0,0) solid;
   position: relative;
   overflow: hidden;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition-property: opacity, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
   transform: scale(0, 0);
   opacity: 0;
 
