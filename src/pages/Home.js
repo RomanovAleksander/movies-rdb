@@ -1,8 +1,8 @@
 import React from 'react';
-import { Slider } from '../components/Slider'
+import { Movies } from '../components/Movies'
 
 export const Home = () => {
   return (
-    <Slider />
+    <Movies />
   );
 };
