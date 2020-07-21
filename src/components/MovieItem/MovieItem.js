@@ -9,6 +9,9 @@ export class MovieItem extends React.Component {
       style: {
         transform: 'scale(0, 0)',
         transitionDelay: `0s, 0s`,
+        transitionProperty: 'opacity, transform',
+        transitionDuration: '0.3s',
+        transitionTimingFunction: 'ease',
         opacity: '0'
       }
     }
@@ -19,6 +22,9 @@ export class MovieItem extends React.Component {
       style : {
         transform: 'scale(1, 1)',
         transitionDelay: `0s, ${this.props.delay}s`,
+        transitionProperty: 'opacity, transform',
+        transitionDuration: '0.3s',
+        transitionTimingFunction: 'ease',
         opacity: '1'
       }
     })
