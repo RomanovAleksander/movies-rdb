@@ -6,7 +6,12 @@
   border: 2px rgba(0,0,0,0) solid;
   position: relative;
   overflow: hidden;
+  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  -moz-transition: opacity 0.3s ease, -moz-transform 0.3s ease;
+  -o-transition: opacity 0.3s ease, -o-transform 0.3s ease;
   transition-property: opacity, transform;
+  transition-property: -webkit-transform;
+  -webkit-transition-property: -webkit-transform;
   transition-duration: 0.3s;
   transition-timing-function: ease;
   transform: scale(0, 0);
