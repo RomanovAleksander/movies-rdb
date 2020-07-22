@@ -16,7 +16,6 @@ export const MovieList = ({ movies, loading, error }) => {
     )
   }
 
-
   if (movies) {
     console.log(movies);
     return (

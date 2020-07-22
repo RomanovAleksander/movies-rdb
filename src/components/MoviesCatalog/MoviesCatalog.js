@@ -2,36 +2,49 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { MovieList } from '../MovieList';
 import { Api } from '../../services';
+import {
+  moviesLoaded, moviesRequested, moviesError
+} from '../../actions';
 
-class Movies extends React.Component {
+class MoviesCatalog extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
-      currentPage: 1
+      currentMoviesPage: 2
     }
   }
 
   handleScroll = () => {
+    const { moviesLoaded, moviesRequested, moviesError } = this.props;
     let clientHeight = document.documentElement.clientHeight;
     let bottom = document.documentElement.getBoundingClientRect().bottom;
-    if (bottom - clientHeight < 100) {
+    if (bottom - clientHeight < 50) {
       this.setState((state) => {
-        return {currentPage: state.currentPage + 1}
+        return {currentMoviesPage: state.currentMoviesPage + 1}
       });
-      Api.getPopularMovies(this.state.currentPage)
-        .then((data) => this.setState({movies: [...this.state.movies, ...data.results]}))
+
+      moviesRequested();
+      Api.getPopularMovies(this.state.currentMoviesPage)
+        .then((data) => moviesLoaded(data.results))
         .catch((err) => {
-          console.log(err)
+          moviesError(err)
         });
     }
   };
 
   componentDidMount() {
+    const { moviesLoaded, moviesRequested, moviesError } = this.props;
+
+    moviesRequested();
     Api.getPopularMovies()
-      .then((data) => this.setState({movies: data.results}))
+      .then((data) => moviesLoaded(data.results))
       .catch((err) => {
-        console.log(err)
+        moviesError(err)
+      });
+    Api.getPopularMovies(this.state.currentMoviesPage)
+      .then((data) => moviesLoaded(data.results))
+      .catch((err) => {
+        moviesError(err)
       });
 
     window.addEventListener('scroll', this.handleScroll);
@@ -43,15 +56,15 @@ class Movies extends React.Component {
 
   render() {
     return (
-      <>
-        <MovieList movies={this.state.movies} />
-      </>
+        <MovieList movies={this.props.movies} />
     )
   }
 }
 
 const mapDispatchToProps = {
-
+  moviesLoaded,
+  moviesRequested,
+  moviesError
 };
 
 const mapStateToProps = state => ({
@@ -63,4 +76,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Movies);
+)(MoviesCatalog);

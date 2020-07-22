@@ -1,1 +1,75 @@
+import {
+  FETCH_MOVIE_FAILURE,
+  FETCH_MOVIE_REQUEST,
+  FETCH_MOVIE_SUCCESS,
+  FETCH_MOVIES_FAILURE,
+  FETCH_MOVIES_REQUEST,
+  FETCH_MOVIES_SUCCESS,
+  ADD_MOVIE,
+  REMOVE_MOVIE
+} from './types';
 
+const movieRequested = () => {
+  return {
+    type: FETCH_MOVIE_REQUEST
+  }
+};
+
+const movieLoaded = (newMovie) => {
+  return {
+    type: FETCH_MOVIE_SUCCESS,
+    payload: newMovie
+  }
+};
+
+const movieError = (error) => {
+  return {
+    type: FETCH_MOVIE_FAILURE,
+    payload: error
+  };
+};
+
+const moviesRequested = () => {
+  return {
+    type: FETCH_MOVIES_REQUEST
+  }
+};
+
+const moviesLoaded = (newMovies) => {
+  return {
+    type: FETCH_MOVIES_SUCCESS,
+    payload: newMovies
+  }
+};
+
+const moviesError = (error) => {
+  return {
+    type: FETCH_MOVIES_FAILURE,
+    payload: error
+  };
+};
+
+const addJoke = (joke) => {
+  return {
+    type: ADD_MOVIE,
+    payload: joke
+  };
+};
+
+const removeJoke = (joke) => {
+  return {
+    type: REMOVE_MOVIE,
+    payload: joke.id
+  };
+};
+
+export {
+  movieRequested,
+  movieLoaded,
+  movieError,
+  moviesRequested,
+  moviesLoaded,
+  moviesError,
+  addJoke,
+  removeJoke
+};

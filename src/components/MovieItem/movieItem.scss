@@ -34,7 +34,7 @@
     //text-shadow: 2px 2px rgba(176, 172, 176, 0.09);
     opacity: 0;
     transition-property: opacity;
-    transition-duration: 0.25s;
+    transition-duration: 0.15s;
     transition-timing-function: linear;
     position: relative;
     width: 100%;
@@ -62,7 +62,7 @@
     .icon {
       position: relative;
       font-size: 12px;
-      padding-right: 2px;
+      padding-right: 4px;
       &:before {
         display: block;
         content: '\f005';

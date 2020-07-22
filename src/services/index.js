@@ -1,4 +1,4 @@
-import StorageService from './StorageService';
+import LocalStorageService from './LocalStorageService';
 import Api from './api';
 
-export { StorageService, Api };
+export { LocalStorageService, Api };

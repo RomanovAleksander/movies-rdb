@@ -56,7 +56,7 @@ $ npm run deploy - deploy application on gh-pages
 │   │   └── index.js
 │   ├── services
 │   │   ├── index.js
-│   │   ├── StorageService.js
+│   │   ├── LocalStorageService.js
 │   │   └── api.js
 │   ├── styles
 │   │   ├── normalize.css
