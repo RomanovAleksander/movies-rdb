@@ -6,7 +6,8 @@ import {
   FETCH_MOVIES_REQUEST,
   FETCH_MOVIES_SUCCESS,
   ADD_MOVIE,
-  REMOVE_MOVIE
+  REMOVE_MOVIE,
+  FILTER_MOVIES
 } from './types';
 
 const movieRequested = () => {
@@ -49,17 +50,24 @@ const moviesError = (error) => {
   };
 };
 
-const addJoke = (joke) => {
+const addJoke = (movie) => {
   return {
     type: ADD_MOVIE,
-    payload: joke
+    payload: movie
   };
 };
 
-const removeJoke = (joke) => {
+const removeJoke = (movie) => {
   return {
     type: REMOVE_MOVIE,
-    payload: joke.id
+    payload: movie.id
+  };
+};
+
+const filterMovies = (filter) => {
+  return {
+    type: FILTER_MOVIES,
+    payload: filter
   };
 };
 
@@ -71,5 +79,6 @@ export {
   moviesLoaded,
   moviesError,
   addJoke,
-  removeJoke
+  removeJoke,
+  filterMovies
 };

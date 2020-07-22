@@ -1,0 +1,43 @@
+.movies-filter {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    //overflow: hidden;
+    font-size: 15px;
+    font-weight: bold;
+
+    li:last-child {
+      border-right: 0;
+    }
+  }
+
+  li {
+    display: inline-block;
+    padding: 7px 15px;
+    color: #ffffff;
+    cursor: pointer;
+    user-select: none;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    border-right: 1px solid white;
+
+    &:hover {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+    }
+  }
+
+  .active {
+    border-radius: 5px;
+    background: rgba(47, 64, 77, 0.85);
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+  }
+}

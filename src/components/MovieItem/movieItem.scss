@@ -33,7 +33,7 @@
     justify-content: space-around;
     //text-shadow: 2px 2px rgba(176, 172, 176, 0.09);
     opacity: 0;
-    transition-property: opacity;
+    transition-property: all;
     transition-duration: 0.15s;
     transition-timing-function: linear;
     position: relative;
@@ -44,7 +44,7 @@
     padding: 4px;
     //background: rgba(61, 137, 141, 0.95);
     //background: rgba(61, 61, 62, 0.8);
-    background: rgba(47, 64, 77, 0.85);;
+    background: rgba(47, 64, 77, 0.85);
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
     line-height: normal;
   }

@@ -7,7 +7,8 @@ import {
   FETCH_MOVIES_REQUEST,
   FETCH_MOVIES_SUCCESS,
   ADD_MOVIE,
-  REMOVE_MOVIE
+  REMOVE_MOVIE,
+  FILTER_MOVIES
 } from '../actions/types';
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   favouritesMovies: [],
   movie: {},
   searchText: '',
+  filter: 'popular',
   loading: false,
   error: null
 };
@@ -87,6 +89,12 @@ export const movies = (state, action) => {
       return {
         ...state,
         favouritesMovies: updatedFavouritesMovies
+      };
+    case FILTER_MOVIES:
+      return {
+        ...state,
+        movies: [],
+        filter: payload
       };
 
     default:

@@ -36,14 +36,8 @@ class Api {
     return data;
   }
 
-  getPopularMovies(page = 1) {
-    const url = this.generateUrl('movie/popular', page);
-
-    return this.handleApiCall(url);
-  }
-
-  getTopRatedMovies(page = 1) {
-    const url = this.generateUrl('movie/top_rated', page);
+  getMovies(page = 1, filter) {
+    const url = this.generateUrl(`movie/${filter}`, page);
 
     return this.handleApiCall(url);
   }

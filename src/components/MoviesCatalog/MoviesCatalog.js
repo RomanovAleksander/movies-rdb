@@ -3,49 +3,58 @@ import { connect } from 'react-redux';
 import { MovieList } from '../MovieList';
 import { Api } from '../../services';
 import {
-  moviesLoaded, moviesRequested, moviesError
+  moviesLoaded, moviesRequested, moviesError, filterMovies
 } from '../../actions';
+import {Filter} from "../Filter";
 
 class MoviesCatalog extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentMoviesPage: 2
+      currentMoviesPage: 2,
     }
   }
 
-  handleScroll = () => {
+  requestMovies = (page = this.state.currentMoviesPage, filterValue = this.props.filter) => {
     const { moviesLoaded, moviesRequested, moviesError } = this.props;
+
+    moviesRequested();
+    console.log(this.state.currentMoviesPage);
+      Api.getMovies(page, filterValue)
+        .then((data) => moviesLoaded(data.results))
+        .catch((err) => {
+          moviesError(err)
+        });
+  };
+
+  changeFilter = (filterValue) => {
+    this.props.filterMovies(filterValue);
+    this.setState({
+      currentMoviesPage: 2
+    });
+
+    this.requestMovies(1, filterValue);
+    setTimeout(() => {
+      this.requestMovies(2, filterValue);
+    },300);
+  };
+
+  handleScroll = () => {
     let clientHeight = document.documentElement.clientHeight;
     let bottom = document.documentElement.getBoundingClientRect().bottom;
     if (bottom - clientHeight < 50) {
       this.setState((state) => {
         return {currentMoviesPage: state.currentMoviesPage + 1}
       });
-
-      moviesRequested();
-      Api.getPopularMovies(this.state.currentMoviesPage)
-        .then((data) => moviesLoaded(data.results))
-        .catch((err) => {
-          moviesError(err)
-        });
+      this.requestMovies()
     }
   };
 
   componentDidMount() {
-    const { moviesLoaded, moviesRequested, moviesError } = this.props;
-
-    moviesRequested();
-    Api.getPopularMovies()
-      .then((data) => moviesLoaded(data.results))
-      .catch((err) => {
-        moviesError(err)
-      });
-    Api.getPopularMovies(this.state.currentMoviesPage)
-      .then((data) => moviesLoaded(data.results))
-      .catch((err) => {
-        moviesError(err)
-      });
+    this.requestMovies(1);
+    setTimeout(() => {
+      this.requestMovies(2);
+    },700);
 
     window.addEventListener('scroll', this.handleScroll);
   }
@@ -56,7 +65,10 @@ class MoviesCatalog extends React.Component {
 
   render() {
     return (
-        <MovieList movies={this.props.movies} />
+      <>
+        <Filter changeFilterValue={this.changeFilter}/>
+        <MovieList movies={this.props.movies}/>
+      </>
     )
   }
 }
@@ -64,11 +76,13 @@ class MoviesCatalog extends React.Component {
 const mapDispatchToProps = {
   moviesLoaded,
   moviesRequested,
-  moviesError
+  moviesError,
+  filterMovies
 };
 
 const mapStateToProps = state => ({
   movies: state.movies.movies,
+  filter: state.movies.filter,
   loading: state.movies.loading,
   error: state.movies.error
 });
