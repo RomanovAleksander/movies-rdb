@@ -7,7 +7,8 @@
 }
 
 .item-wrapper {
-  width: calc(100%/9);
-  height: calc((100vw/9)*1.5);
+  width: calc(100%/8);
+  height: calc((100vw/8)*1.5);
+  max-height: 700px;
   padding: 2px;
 }
