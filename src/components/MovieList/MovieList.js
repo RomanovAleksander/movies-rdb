@@ -24,7 +24,7 @@ export const MovieList = ({ movies, loading, error }) => {
         {
           movies.map((movie) => {
             return (
-              <div key={movie.id}>
+              <div className="item-wrapper" key={movie.id}>
                 <MovieItem
                   movie={movie}
                   delay={(movies.indexOf(movie)%20)*0.04}
