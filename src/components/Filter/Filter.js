@@ -24,12 +24,14 @@ export default class Filter extends React.Component{
   };
 
   render() {
+    const disable = false;
+    const isActive = (value) => this.state.filter === value ? 'active' : '';
     return (
       <div className="movies-filter">
-        <ul onClick={this.handleClick}>
-          <li className={this.state.filter === 'popular' ? 'active' : ''} data-filter="popular">Popular</li>
-          <li className={this.state.filter === 'top_rated' ? 'active' : ''} data-filter="top_rated">Top rated</li>
-          <li className={this.state.filter === 'upcoming' ? 'active' : ''} data-filter="upcoming">Upcoming</li>
+        <ul onClick={disable ? null : this.handleClick}>
+          <li className={isActive('popular')} data-filter="popular">Popular</li>
+          <li className={isActive('top_rated')} data-filter="top_rated">Top rated</li>
+          <li className={isActive('upcoming')} data-filter="upcoming">Upcoming</li>
         </ul>
       </div>
     )

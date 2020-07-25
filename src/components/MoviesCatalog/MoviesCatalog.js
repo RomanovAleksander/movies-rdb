@@ -66,7 +66,19 @@ class MoviesCatalog extends React.Component {
   render() {
     return (
       <>
-        <Filter changeFilterValue={this.changeFilter}/>
+        <header className="header">
+          <nav className="nav">
+            <div className="nav__btn">
+              <span className="movie-icon icon"> </span>
+              <span>Movies</span>
+            </div>
+            <div className="nav__btn">
+              <span className="tv-icon icon"> </span>
+              <span>TV Shows</span>
+            </div>
+          </nav>
+          <Filter changeFilterValue={this.changeFilter}/>
+        </header>
         <MovieList movies={this.props.movies}/>
       </>
     )
