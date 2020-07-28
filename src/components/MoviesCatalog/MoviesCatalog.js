@@ -6,7 +6,6 @@ import {
   moviesLoaded, moviesRequested, moviesError, filterMovies
 } from '../../actions';
 import {Filter} from "../Filter";
-import { MoviesIcon } from '../../assets/cinema.svg';
 
 class MoviesCatalog extends React.Component {
   constructor() {
