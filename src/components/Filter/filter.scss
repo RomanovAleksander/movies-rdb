@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .movies-filter {
   display: flex;
   justify-content: flex-end;
@@ -30,7 +32,7 @@
     //border-right: 1px solid white;
 
     &:hover {
-      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+      text-shadow: $box-text-shadow;
     }
   }
 
@@ -45,9 +47,9 @@
 
   .active {
     border-radius: 5px;
-    background: rgba(47, 64, 77, 0.85);
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+    //background: rgba(47, 64, 77, 0.85);
+    box-shadow: $box-text-shadow;
+    text-shadow: $box-text-shadow;
   }
 }
 
@@ -70,7 +72,7 @@
       cursor: pointer;
 
       &:hover {
-        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+        text-shadow: $box-text-shadow;
       }
     }
 
@@ -97,5 +99,20 @@
         color: #ffffff;
       }
     }
+  }
+}
+
+/* Width */
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Thumb */
+body::-webkit-scrollbar-thumb {
+  background: rgba(47, 64, 77, 1);
+  border-radius: 5px;
+
+  &:hover {
+    background-image: linear-gradient(231deg, #f6b905, #d14605);
   }
 }
