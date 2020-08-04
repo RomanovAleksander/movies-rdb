@@ -1,7 +1,7 @@
 import React from 'react';
 import {MoviesCatalog} from '../components/MoviesCatalog'
 
-export const Home = () => {
+export const Catalog = () => {
   return (
     <>
       <MoviesCatalog/>

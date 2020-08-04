@@ -1,9 +1,9 @@
 import React from 'react';
-import { Home } from "../../pages";
+import { Catalog } from "../../pages";
 import './app.scss';
 
 export const App = () => {
   return (
-    <Home />
+    <Catalog />
   );
 };

@@ -50,7 +50,7 @@ $ npm run deploy - deploy application on gh-pages
 │   │       └── slider.scss
 │   ├── pages
 │   │   ├── index.js
-│   │   └── Home.js
+│   │   └── Catalog.js
 │   ├── reducers
 │   │   ├── movies.js
 │   │   └── index.js
