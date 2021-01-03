@@ -102,12 +102,10 @@
   }
 }
 
-/* Width */
 body::-webkit-scrollbar {
   width: 6px;
 }
 
-/* Thumb */
 body::-webkit-scrollbar-thumb {
   background: rgba(47, 64, 77, 1);
   border-radius: 5px;

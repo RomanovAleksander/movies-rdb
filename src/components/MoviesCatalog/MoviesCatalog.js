@@ -69,9 +69,7 @@ class MoviesCatalog extends React.Component {
         <header className="header">
           <nav className="nav">
             <div className="nav__btn">
-              <span className="movie-icon icon">
-                
-              </span>
+              <span className="movie-icon icon"> </span>
               <span>Movies</span>
             </div>
             <div className="nav__btn">

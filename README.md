@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) [![Build Status](https://travis-ci.com/RomanovAleksander/movies-rdb.svg?branch=master)](https://travis-ci.com/RomanovAleksander/movies-rdb)
 
+API - [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction)
+
 ### Installing
 ```
 $ git clone https://github.com/RomanovAleksander/movies-rdb.git - clone this repository
