@@ -10,7 +10,7 @@ import {
   REMOVE_MOVIE,
   FILTER_MOVIES,
   CHANGE_CATEGORY,
-  SEARCH
+  // SEARCH
 } from '../actions/types';
 
 const initialState = {
@@ -111,11 +111,11 @@ export const movies = (state, action) => {
         category: payload,
         filter: isUpcomingTv(payload)
       };
-    case SEARCH:
-      return {
-        ...state,
-        movies: [...payload],
-      };
+    // case SEARCH:
+    //   return {
+    //     ...state,
+    //     movies: [...payload],
+    //   };
 
     default:
       return state;
