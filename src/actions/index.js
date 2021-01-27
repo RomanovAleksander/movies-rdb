@@ -9,7 +9,7 @@ import {
   REMOVE_MOVIE,
   FILTER_MOVIES,
   CHANGE_CATEGORY,
-  SEARCH
+  // SEARCH
 } from './types';
 
 const movieRequested = () => {
