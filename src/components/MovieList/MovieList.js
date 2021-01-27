@@ -3,7 +3,7 @@ import { ErrorIndicator } from '../ErrorIndicator';
 import './movieList.scss';
 import { MovieItem } from "../MovieItem";
 
-export const MovieList = ({ movies, loading, error }) => {
+export const MovieList = ({ movies, isMovie, loading, error }) => {
   if (loading) {
     return <div>Loading...</div>
   }
@@ -17,7 +17,8 @@ export const MovieList = ({ movies, loading, error }) => {
   }
 
   if (movies) {
-    console.log(movies);
+    console.log('movies: ', movies);
+
     return (
       <div className="list">
         {
@@ -25,6 +26,7 @@ export const MovieList = ({ movies, loading, error }) => {
             return (
               <div className="item-wrapper" key={movie.id}>
                 <MovieItem
+                  isMovie={isMovie}
                   movie={movie}
                   delay={(movies.indexOf(movie)%20)*0.04}
                 />

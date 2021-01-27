@@ -36,8 +36,8 @@ class Api {
     return data;
   }
 
-  getMovies(page = 1, filter) {
-    const url = this.generateUrl(`movie/${filter}`, page);
+  getMovies(page = 1, filter, category) {
+    const url = this.generateUrl(`${category}/${filter}`, page);
 
     return this.handleApiCall(url);
   }

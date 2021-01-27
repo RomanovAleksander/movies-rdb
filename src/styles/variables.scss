@@ -1,5 +1,7 @@
 $main-bg: #1E1E1E;
 $main-text-color: #FEFEFE;
 $second-shadow-color: #f68605;
+$hover-shadow-color: red;
 $box-text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px $second-shadow-color, 0 0 20px $second-shadow-color, 0 0 25px $second-shadow-color, 0 0 30px $second-shadow-color, 0 0 35px $second-shadow-color;
+$box-text-hover: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px $hover-shadow-color, 0 0 20px $hover-shadow-color, 0 0 25px $hover-shadow-color, 0 0 30px $hover-shadow-color, 0 0 35px $hover-shadow-color;
 

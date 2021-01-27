@@ -8,7 +8,8 @@ import {
   FETCH_MOVIES_SUCCESS,
   ADD_MOVIE,
   REMOVE_MOVIE,
-  FILTER_MOVIES
+  FILTER_MOVIES,
+  CHANGE_CATEGORY
 } from '../actions/types';
 
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
   movie: {},
   searchText: '',
   filter: 'popular',
+  category: 'movie',
   loading: false,
   error: null
 };
@@ -95,6 +97,18 @@ export const movies = (state, action) => {
         ...state,
         movies: [],
         filter: payload
+      };
+    case CHANGE_CATEGORY:
+      const isUpcomingTv = (payload) => {
+        if (state.category === 'movie' && state.filter === 'upcoming' && payload === 'tv') { return 'on_the_air'}
+        else if (state.category === 'tv' && state.filter === 'on_the_air' && payload === 'movie') { return 'upcoming' }
+        else { return state.filter }
+      }
+      return {
+        ...state,
+        movies: [],
+        category: payload,
+        filter: isUpcomingTv(payload)
       };
 
     default:

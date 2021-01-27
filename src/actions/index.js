@@ -7,7 +7,8 @@ import {
   FETCH_MOVIES_SUCCESS,
   ADD_MOVIE,
   REMOVE_MOVIE,
-  FILTER_MOVIES
+  FILTER_MOVIES,
+  CHANGE_CATEGORY
 } from './types';
 
 const movieRequested = () => {
@@ -71,6 +72,13 @@ const filterMovies = (filter) => {
   };
 };
 
+const changeCategory = (category) => {
+  return {
+    type: CHANGE_CATEGORY,
+    payload: category
+  };
+};
+
 export {
   movieRequested,
   movieLoaded,
@@ -80,5 +88,6 @@ export {
   moviesError,
   addJoke,
   removeJoke,
-  filterMovies
+  filterMovies,
+  changeCategory
 };

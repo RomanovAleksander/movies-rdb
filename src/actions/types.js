@@ -9,3 +9,4 @@ export const FETCH_MOVIES_FAILURE = 'FETCH_MOVIES_FAILURE';
 export const ADD_MOVIE = 'ADD_JOKE';
 export const REMOVE_MOVIE = 'REMOVE_JOKE';
 export const FILTER_MOVIES = 'FILTER_MOVIES';
+export const CHANGE_CATEGORY = 'CHANGE_CATEGORY';
