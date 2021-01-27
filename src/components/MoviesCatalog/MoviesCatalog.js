@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { MovieList } from '../MovieList';
 import { Api } from '../../services';
 import {
-  moviesLoaded, moviesRequested, moviesError, filterMovies, changeCategory
+  moviesLoaded, moviesRequested, moviesError, filterMovies, changeCategory,
+  // searchT
 } from '../../actions';
 import {Filter} from "../Filter";
 import {Categories} from "../Categories";
@@ -12,7 +13,8 @@ class MoviesCatalog extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentMoviesPage: 2
+      currentMoviesPage: 2,
+      searchText: ''
     }
   }
 
@@ -28,7 +30,7 @@ class MoviesCatalog extends React.Component {
         });
   };
 
-  requestSomePages = (page, filter, category) => {
+  requestSomePages = (page = 1, filter, category) => {
     this.requestMovies(page, filter, category);
     setTimeout(() => {
       this.requestMovies(page+1, filter, category);
@@ -67,10 +69,7 @@ class MoviesCatalog extends React.Component {
   };
 
   componentDidMount() {
-    this.requestMovies(1);
-    setTimeout(() => {
-      this.requestMovies(2);
-    },700);
+    this.requestSomePages();
 
     window.addEventListener('scroll', this.handleScroll);
   }
@@ -79,11 +78,25 @@ class MoviesCatalog extends React.Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
+  // handleSearch = (e) => {
+  //   const searchText = e.target.value;
+  //   this.setState({ searchText });
+  //
+  //   const { searchT } = this.props;
+  //   Api.searchMovies(searchText)
+  //     .then((data) => searchT(data.results))
+  // };
+
   render() {
     return (
       <>
         <header className="header">
           <Categories changeCategoryValue={this.changeCategories}/>
+          {/*<input type="search"*/}
+          {/*       onChange={this.handleSearch}*/}
+          {/*       placeholder="Free text search..."*/}
+          {/*       value={this.state.searchText}*/}
+          {/*/>*/}
           <Filter changeFilterValue={this.changeFilter} isTv={this.props.category} filter={this.props.filter}/>
         </header>
         <MovieList movies={this.props.movies}/>
@@ -97,7 +110,8 @@ const mapDispatchToProps = {
   moviesRequested,
   moviesError,
   filterMovies,
-  changeCategory
+  changeCategory,
+  // searchT
 };
 
 const mapStateToProps = state => ({

@@ -8,7 +8,8 @@ import {
   ADD_MOVIE,
   REMOVE_MOVIE,
   FILTER_MOVIES,
-  CHANGE_CATEGORY
+  CHANGE_CATEGORY,
+  SEARCH
 } from './types';
 
 const movieRequested = () => {
@@ -79,6 +80,13 @@ const changeCategory = (category) => {
   };
 };
 
+// const searchT = (text) => {
+//   return {
+//     type: SEARCH,
+//     payload: text
+//   };
+// };
+
 export {
   movieRequested,
   movieLoaded,
@@ -89,5 +97,6 @@ export {
   addJoke,
   removeJoke,
   filterMovies,
-  changeCategory
+  changeCategory,
+  // searchT
 };

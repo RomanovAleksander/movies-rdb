@@ -12,3 +12,12 @@
   max-height: 700px;
   padding: 2px;
 }
+
+@media screen and (orientation: portrait){
+  .item-wrapper {
+    width: calc(100%/4);
+    height: calc((100vw/4)*1.5);
+    max-height: 700px;
+    padding: 2px;
+  }
+}

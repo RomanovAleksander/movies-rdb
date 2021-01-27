@@ -12,7 +12,6 @@
     //border: 1px solid #fff;
     border-radius: 5px;
     //overflow: hidden;
-    font-size: 15px;
     font-weight: bold;
 
     //li:last-child {
@@ -22,7 +21,7 @@
 
   li {
     display: inline-block;
-    padding: 7px 15px;
+    padding: 10px 10px;
     color: #ffffff;
     cursor: pointer;
     user-select: none;
@@ -51,70 +50,4 @@
   //background: rgba(47, 64, 77, 0.85);
   //box-shadow: $box-text-shadow;
   text-shadow: $box-text-shadow;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-
-  .nav {
-    display: flex;
-    padding-left: 8px;
-    font-size: 15px;
-    font-weight: bold;
-    &__btn {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      margin-right: 17px;
-      transition-property: all;
-      transition-duration: 0.3s;
-      transition-timing-function: ease;
-      cursor: pointer;
-
-      &:hover {
-        text-shadow: $box-text-hover;
-      }
-    }
-
-    //.icon {
-    //  font-size: 25px;
-    //  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
-    //  font-weight: 900;
-    //  font-style: normal;
-    //  text-decoration: inherit;
-    //}
-
-    //.movie-icon {
-    //  &:before {
-    //    content: "\f008";
-    //    display: block;
-    //    color: #ffffff;
-    //  }
-    //}
-    //
-    //.tv-icon {
-    //  &:before {
-    //    content: "\f03d";
-    //    display: block;
-    //    color: #ffffff;
-    //  }
-    //}
-  }
-}
-
-body::-webkit-scrollbar {
-  width: 6px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: rgba(47, 64, 77, 1);
-  border-radius: 5px;
-
-  &:hover {
-    background-image: linear-gradient(231deg, #f6b905, #d14605);
-  }
 }

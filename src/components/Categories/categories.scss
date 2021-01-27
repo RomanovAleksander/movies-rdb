@@ -1,0 +1,54 @@
+@import '../../styles/variables.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .nav {
+    display: flex;
+    font-weight: bold;
+    justify-content: flex-end;
+    margin: 8px;
+    &__btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 10px 10px;
+      transition-property: all;
+      transition-duration: 0.3s;
+      transition-timing-function: ease;
+      cursor: pointer;
+
+      &:hover {
+        text-shadow: $box-text-hover;
+      }
+    }
+
+    //.icon {
+    //  font-size: 25px;
+    //  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+    //  font-weight: 900;
+    //  font-style: normal;
+    //  text-decoration: inherit;
+    //}
+
+    //.movie-icon {
+    //  &:before {
+    //    content: "\f008";
+    //    display: block;
+    //    color: #ffffff;
+    //  }
+    //}
+    //
+    //.tv-icon {
+    //  &:before {
+    //    content: "\f03d";
+    //    display: block;
+    //    color: #ffffff;
+    //  }
+    //}
+  }
+}

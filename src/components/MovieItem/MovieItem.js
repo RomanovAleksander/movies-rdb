@@ -42,7 +42,7 @@ export class MovieItem extends React.Component {
   render() {
     const { title, vote_average, release_date, name, first_air_date } = this.props.movie;
     const hover = this.state.hover ? {opacity: '1'} : {opacity: '0'};
-    const isCorrect = (date) => date ? date.substr(0,4) : 'Unknown';
+    const isCorrect = (date) => date ? `(${date.substr(0,4)})` : '';
     const isTitle = title ? title : name;
     const isRelease = release_date ? isCorrect(release_date) : isCorrect(first_air_date);
 
@@ -57,7 +57,7 @@ export class MovieItem extends React.Component {
               {isTitle}
             </div>
             <div className="details__year">
-              ({isRelease})
+              {isRelease}
             </div>
           </div>
           <div className="details__vote">

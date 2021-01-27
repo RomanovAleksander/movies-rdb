@@ -13,6 +13,7 @@
   transform: scale(0, 0);
   opacity: 0;
   cursor: pointer;
+  font-size: 85%;
 
   img {
     position: absolute;
@@ -50,7 +51,6 @@
   }
 
   .details__title-year {
-    font-size: 15px;
     font-weight: bold;
     text-align: center;
   }
@@ -61,7 +61,7 @@
     justify-content: center;
     .icon {
       position: relative;
-      font-size: 12px;
+      font-size: 75%;
       padding-right: 4px;
       &:before {
         display: block;
