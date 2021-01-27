@@ -8,6 +8,7 @@ import {
 } from '../../actions';
 import {Filter} from "../Filter";
 import {Categories} from "../Categories";
+import {ScrollArrow} from "../ScrollArrow";
 
 class MoviesCatalog extends React.Component {
   constructor() {
@@ -100,6 +101,7 @@ class MoviesCatalog extends React.Component {
           <Filter changeFilterValue={this.changeFilter} isTv={this.props.category} filter={this.props.filter}/>
         </header>
         <MovieList movies={this.props.movies}/>
+        <ScrollArrow />
       </>
     )
   }
