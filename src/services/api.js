@@ -2,7 +2,7 @@ import imageFallback from '../assets/no-image.png';
 
 const API_KEY = 'fa2b02021794026b428e1d15dc359d00';
 const BASE_API_URL = 'https://api.themoviedb.org/3/';
-const BASE_IMG_API = 'https://image.tmdb.org/t/p/original/';
+const BASE_IMG_API = 'https://image.tmdb.org/t/p/w780/';
 const BASE_IMG_MINI_API = 'https://image.tmdb.org/t/p/w500/';
 
 class Api {
@@ -42,8 +42,14 @@ class Api {
     return this.handleApiCall(url);
   }
 
-  getMovie(id) {
-    const url = this.generateUrl(`movie/${id}`);
+  getMovie(id, category) {
+    const url = this.generateUrl(`${category}/${id}`);
+
+    return this.handleApiCall(url);
+  }
+
+  getMoviesTrailer(id, category) {
+    const url = this.generateUrl(`${category}/${id}/videos`);
 
     return this.handleApiCall(url);
   }
@@ -54,8 +60,8 @@ class Api {
     return this.handleApiCall(url);
   }
 
-  getGenresListForMovies() {
-    const url = this.generateUrl('genre/movie/list');
+  getGenresListForMovies(category) {
+    const url = this.generateUrl(`genre/${category}/list`);
 
     return this.handleApiCall(url);
   }

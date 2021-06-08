@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { MovieList } from '../MovieList';
 import { Api } from '../../services';
 import {
@@ -100,7 +101,9 @@ class MoviesCatalog extends React.Component {
           {/*/>*/}
           <Filter changeFilterValue={this.changeFilter} isTv={this.props.category} filter={this.props.filter}/>
         </header>
-        <MovieList movies={this.props.movies}/>
+        <MovieList movies={this.props.movies} onView={(movieId) => {
+          this.props.history.push(`/${movieId}`);
+        }} />
         <ScrollArrow />
       </>
     )
@@ -127,4 +130,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MoviesCatalog);
+)(withRouter(MoviesCatalog));

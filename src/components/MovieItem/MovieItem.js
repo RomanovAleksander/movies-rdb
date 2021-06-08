@@ -49,7 +49,8 @@ export class MovieItem extends React.Component {
     return (
       <div className="movie-item" style={this.state.style}
            onMouseEnter={this.toggleHover}
-           onMouseLeave={this.toggleHover} >
+           onMouseLeave={this.toggleHover}
+           onClick={this.props.onView} >
         <img src={Api.getMoviePosterMiniImageUrl(this.props.movie)} alt=""/>
         <div className="movie-item__details glow" style={hover}>
           <div className="details__title-year">

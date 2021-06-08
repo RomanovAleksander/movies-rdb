@@ -16,7 +16,7 @@ import {
 const initialState = {
   movies: [],
   favouritesMovies: [],
-  movie: {},
+  movie: null,
   searchText: '',
   filter: 'popular',
   category: 'movie',

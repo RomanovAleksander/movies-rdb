@@ -59,19 +59,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    .icon {
-      position: relative;
-      font-size: 75%;
-      padding-right: 4px;
-      &:before {
-        display: block;
-        content: '\f005';
-        color: #ffffff;
-        font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
-        font-weight: 900;
-        font-style: normal;
-        text-decoration: inherit;
-      }
-    }
+  }
+}
+
+.icon {
+  position: relative;
+  font-size: 75%;
+  padding-right: 4px;
+  &:before {
+    display: block;
+    content: '\f005';
+    color: #ffffff;
+    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+    font-weight: 900;
+    font-style: normal;
+    text-decoration: inherit;
   }
 }
