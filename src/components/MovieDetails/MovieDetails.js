@@ -11,7 +11,8 @@ export class MovieDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      trailerKey: null
+      trailerKey: null,
+      isOpen: false
     }
   }
 
@@ -31,6 +32,10 @@ export class MovieDetails extends React.Component {
       .catch((err) => console.log(err));
   }
 
+  openModal = () => {
+    this.setState({isOpen: true});
+  }
+
   render() {
     const { movie } = this.props;
 
@@ -41,6 +46,14 @@ export class MovieDetails extends React.Component {
 
       return (
         <div className="details-wrapper">
+          {
+            this.state.isOpen ? <div className="trailer-wrapper" onClick={() => this.setState({isOpen: false})}>
+              <iframe className="modal-trailer" title="Trailer"
+                      src={`https://www.youtube-nocookie.com/embed/${this.state.trailerKey}`} frameBorder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen/>
+            </div> : null
+          }
           <img src={Api.getMoviePosterImageUrl(movie)} alt="poser" className="poster_img"/>
           <div className="details-content">
             <div className="details-content__title">{title}</div>
@@ -56,8 +69,7 @@ export class MovieDetails extends React.Component {
             <div className="details-content__synopsis">
               {overview}
             </div>
-            <a rel="noopener noreferrer" href={`https://www.youtube.com/watch?v=${this.state.trailerKey}`}
-               target="_blank" className="trailer_btn">Trailer</a>
+            <a onClick={this.openModal} className="trailer_btn">Trailer</a>
           </div>
           <div className="close_btn" onClick={() => {
             this.props.history.push(`/`);
