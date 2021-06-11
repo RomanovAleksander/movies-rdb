@@ -69,7 +69,7 @@ export class MovieDetails extends React.Component {
             <div className="details-content__synopsis">
               {overview}
             </div>
-            <a onClick={this.openModal} className="trailer_btn">Trailer</a>
+            <button onClick={this.openModal} className="trailer_btn">Trailer</button>
           </div>
           <div className="close_btn" onClick={() => {
             this.props.history.push(`/`);
